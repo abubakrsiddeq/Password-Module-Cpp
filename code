@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+#include <conio.h> 
 using namespace std;
 
 int main() {
@@ -8,12 +8,19 @@ int main() {
 
     cout << "Enter password: ";
 
-    
-    while ((ch = _getch()) != 13) { 
-        password += ch;
-        cout << '*';
+    // Loop to take each character input
+    while ((ch = _getch()) != '\r') { // '\r' is Enter key
+        if (ch == '\b' && !password.empty()) { // '\b' for Backspace
+            password.pop_back();
+            cout << "\b \b"; // Move cursor back, print space, and move back again
+        }
+        else if (ch != '\b') {
+            password += ch;
+            cout << '*'; // Print asterisk for each character
+        }
     }
 
-    cout << "\nYour password is: " << password << endl;
+    cout << "\nYour password is stored securely!" << endl;
+
     return 0;
 }
