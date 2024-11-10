@@ -1,0 +1,19 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main() {
+    string password;
+    char ch;
+
+    cout << "Enter password: ";
+
+    
+    while ((ch = _getch()) != 13) { 
+        password += ch;
+        cout << '*';
+    }
+
+    cout << "\nYour password is: " << password << endl;
+    return 0;
+}
